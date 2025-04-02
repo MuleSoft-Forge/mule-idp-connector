@@ -1,0 +1,101 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "examples": ["4f744f12-0700-4a0c-bf16-084aa3c6f7a8", "c333413d-6593-4423-b3d4-f8ff4bf88917"]
+          },
+          "organizationId": {
+            "type": "string",
+            "examples": ["01f79c97-9a83-4194-b922-15b64fd7305e"]
+          },
+          "name": {
+            "type": "string",
+            "examples": ["IDP-Generic-EEA and EFTA Driving Licence", "IDP-PO-BurlingtonTextiles-NoEinstein"]
+          },
+          "description": {
+            "type": "string",
+            "examples": [
+              "IDP-Generic-EEA and EFTA Driving Licence https://en.wikipedia.org/wiki/European_driving_licence#Standard_data_field_labelling",
+              "IDP-PO-BurlingtonTextiles-NoEinstein"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "examples": ["GENERIC", "PURCHASE_ORDER"]
+          },
+          "empowerWith": {
+            "type": "string",
+            "examples": ["EINSTEIN", "NLP"]
+          },
+          "configuration": {
+            "type": "object",
+            "properties": {
+              "content": {
+                "type": "object",
+                "additionalProperties": true
+              },
+              "version": {
+                "type": "string",
+                "examples": ["2.0.0", "1.2.0"]
+              }
+            },
+            "required": ["content", "version"]
+          },
+          "createdBy": {
+            "type": "string",
+            "examples": ["02b7dcdb-2f05-4c8f-9a37-a32b3dc2442f", "d5161285-ebb0-41d8-bbd5-2324f8051eb7"]
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "examples": ["2025-02-24T12:49:35.953267Z", "2025-02-24T09:53:54.642749Z"]
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "examples": ["2025-02-24T13:17:55.248546Z", "2025-02-24T10:09:39.805899Z"]
+          },
+          "registration": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "examples": ["REGISTERED"]
+              },
+              "message": {
+                "type": "string",
+                "examples": [""]
+              }
+            },
+            "required": ["status", "message"]
+          }
+        },
+        "required": [
+          "id",
+          "organizationId",
+          "name",
+          "description",
+          "type",
+          "empowerWith",
+          "configuration",
+          "createdBy",
+          "createdAt",
+          "updatedAt",
+          "registration"
+        ]
+      }
+    },
+    "total": {
+      "type": "integer",
+      "examples": [2]
+    }
+  },
+  "required": ["actions", "total"]
+}

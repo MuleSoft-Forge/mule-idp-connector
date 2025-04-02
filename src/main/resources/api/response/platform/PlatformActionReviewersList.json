@@ -1,0 +1,98 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "format": "uuid",
+        "description": "Unique identifier"
+      },
+      "name": {
+        "type": "string",
+        "description": "Name of the user or team"
+      },
+      "username": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "Username (only for users), null for teams"
+      },
+      "type": {
+        "type": "string",
+        "enum": [
+          "USER",
+          "TEAM"
+        ],
+        "description": "Type of entity (USER or TEAM)"
+      },
+      "email": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "format": "email",
+        "description": "Email address (only for users), null for teams"
+      },
+      "memberCount": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "minimum": 0,
+        "description": "Number of members in the team (only for teams), null for users"
+      }
+    },
+    "required": [
+      "id",
+      "name",
+      "type"
+    ],
+    "dependencies":{
+      "username": ["email"],
+      "email": ["username"],
+      "memberCount": []
+    },
+    "if": {
+      "properties": {
+        "type": {"const": "USER"}
+      }
+    },
+    "then":{
+      "required": ["username","email"]
+    },
+    "else": {
+      "required": ["memberCount"]
+    }
+  },
+  "examples": [
+    [
+      {
+        "id": "02b7dcdb-2f05-4c8f-9a37-a32b3dc2442f",
+        "name": "idp connector",
+        "username": "idpconnector",
+        "type": "USER",
+        "email": "gjeffcock@salesforce.com",
+        "memberCount": null
+      },
+      {
+        "id": "829f44f2-c49d-46eb-8b77-e440a26c1602",
+        "name": "Reza Lexén",
+        "username": "reznasIDP",
+        "type": "USER",
+        "email": "reza.lexen@redpill-linpro.com",
+        "memberCount": null
+      },
+      {
+        "id": "f430ffcb-d0d4-4f88-947e-e1d456c76882",
+        "name": "MuleSoft-IDP-Connector",
+        "type": "TEAM",
+        "username": null,
+        "email": null,
+        "memberCount": 4
+      }
+    ]
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier of the document",
+      "examples": [
+        "c146a2cb-f271-414b-ba75-14f8e1aa85c0",
+        "123e4567-e89b-12d3-a456-426614174000"
+      ]
+    },
+    "documentName": {
+      "type": "string",
+      "description": "Name of the document",
+      "examples": [
+        "IDP-PO-CD656092-BurlingtonTextiles-Manual.pdf",
+        "Invoice_2023-10-26.pdf",
+        "Customer_Contract.txt"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "documentName"
+  ],
+  "title": "MuleSoft IDP Execution Submission Response",
+  "examples": [
+    {
+      "id": "c146a2cb-f271-414b-ba75-14f8e1aa85c0",
+      "documentName": "IDP-PO-CD656092-BurlingtonTextiles-Manual.pdf"
+    },
+    {
+      "id": "123e4567-e89b-12d3-a456-426614174000",
+      "documentName": "Invoice_2023-10-26.pdf"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DocumentActionLowConfidenceExecution",
+  "description": "Low Confidence Items/Queries/Analyzers/Signatures",
+  "type": "object",
+  "properties": {
+    "analyzersResults": {
+      "type": "array",
+      "description": "Analyzers that need review",
+      "items": {
+        "type": "object",
+        "properties": {
+          "confidenceScore": {
+            "type": "number",
+            "format": "float"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "isValidated": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "query": {
+            "type": "string"
+          },
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "confidenceScore",
+          "id",
+          "name",
+          "query",
+          "result"
+        ]
+      },
+      "default": []
+    },
+    "queriesResults": {
+      "type": "object",
+      "description": "Queries with Low Confidence Scores",
+      "default": {}
+    },
+    "results": {
+      "type": "object",
+      "description": "Results with Low Confidence Scores",
+      "default": {}
+    },
+    "signaturesResults": {
+      "type": "object",
+      "description": "Signatures with Low Confidence Scores",
+      "default": {}
+    }
+  },
+  "required": [
+    "analyzersResults",
+    "queriesResults",
+    "results",
+    "signaturesResults"
+  ],
+  "example": {
+    "results": {},
+    "queriesResults": {},
+    "analyzersResults": [],
+    "signaturesResults": {}
+  }
+}
