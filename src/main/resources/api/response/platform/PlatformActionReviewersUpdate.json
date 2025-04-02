@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "id": { "type": "string" },
+      "type": { "type": "string", "enum": ["USER", "TEAM"] }
+    },
+    "required": ["id", "type"]
+  },
+  "examples": [
+    [
+      {
+        "id": "02b7dcdb-2f05-4c8f-9a37-a32b3dc2442f",
+        "type": "USER"
+      },
+      {
+        "id": "829f44f2-c49d-46eb-8b77-e440a26c1602",
+        "type": "USER"
+      },
+      {
+        "id": "f430ffcb-d0d4-4f88-947e-e1d456c76882",
+        "type": "TEAM"
+      }
+    ]
+  ]
+}

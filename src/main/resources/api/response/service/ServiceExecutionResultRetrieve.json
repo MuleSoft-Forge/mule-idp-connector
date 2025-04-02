@@ -1,0 +1,161 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DocumentExecutionGetResponse",
+  "type": "object",
+  "properties": {
+    "pages": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/DocumentPage"
+      }
+    },
+    "tables": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/DocumentField"
+          }
+        }
+      }
+    },
+    "id": {
+      "$ref": "#/definitions/executionId"
+    },
+    "documentName": {
+      "type": "string"
+    },
+    "fields": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/DocumentField"
+      }
+    },
+    "prompts": {
+      "$ref": "#/definitions/DocumentPrompt"
+    },
+    "status": {
+      "$ref": "#/definitions/ExecutionStatus"
+    }
+  },
+  "required": [
+    "pages",
+    "id",
+    "documentName",
+    "prompts",
+    "status"
+  ],
+  "definitions": {
+    "DocumentPage": {
+      "type": "object",
+      "properties": {
+        "tables": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/DocumentField"
+              }
+            }
+          }
+        },
+        "page": {
+          "type": "string"
+        },
+        "fields": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/DocumentField"
+          }
+        },
+        "prompts": {
+          "$ref": "#/definitions/DocumentPrompt"
+        }
+      },
+      "required": [
+        "tables",
+        "page",
+        "fields",
+        "prompts"
+      ]
+    },
+    "DocumentPrompt": {
+      "type": "object",
+      "properties": {
+        "answer": {
+          "$ref": "#/definitions/DocumentField"
+        },
+        "source": {
+          "type": "string"
+        },
+        "prompt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "answer",
+        "source",
+        "prompt"
+      ]
+    },
+    "DocumentField": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "geometry": {
+          "type": "object",
+          "properties": {
+            "height": {
+              "type": "number"
+            },
+            "left": {
+              "type": "number"
+            },
+            "width": {
+              "type": "number"
+            },
+            "top": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "height",
+            "left",
+            "width",
+            "top"
+          ]
+        },
+        "confidenceScore": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "value",
+        "geometry",
+        "confidenceScore"
+      ]
+    },
+    "executionId": {
+      "type": "string",
+      "pattern": "^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$"
+    },
+    "ExecutionStatus": {
+      "type": "string",
+      "enum": [
+        "ACKNOWLEDGED",
+        "IN_PROGRESS",
+        "RESULTS_PENDING",
+        "MANUAL_VALIDATION_REQUIRED",
+        "FAILED",
+        "PARTIAL_SUCCESS",
+        "SUCCEEDED"
+      ]
+    }
+  }
+}

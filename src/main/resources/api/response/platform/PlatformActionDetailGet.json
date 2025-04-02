@@ -1,0 +1,1656 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "organizationId": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "empowerWith": {
+      "type": "string"
+    },
+    "configuration": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "object",
+          "properties": {
+            "output": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "object",
+                  "properties": {
+                    "fob": {
+                      "type": "object",
+                      "properties": {
+                        "hidden": {
+                          "type": "boolean"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "confidenceThreshold": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "hidden",
+                        "required",
+                        "confidenceThreshold"
+                      ]
+                    },
+                    "tax": {
+                      "type": "object",
+                      "properties": {
+                        "hidden": {
+                          "type": "boolean"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "confidenceThreshold": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "hidden",
+                        "required",
+                        "confidenceThreshold"
+                      ]
+                    },
+                    "total": {
+                      "type": "object",
+                      "properties": {
+                        "hidden": {
+                          "type": "boolean"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "confidenceThreshold": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "hidden",
+                        "required",
+                        "confidenceThreshold"
+                      ]
+                    },
+                    "emails": {
+                      "type": "object",
+                      "properties": {
+                        "hidden": {
+                          "type": "boolean"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "confidenceThreshold": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "hidden",
+                        "required",
+                        "confidenceThreshold"
+                      ]
+                    },
+                    "carrier": {
+                      "type": "object",
+                      "properties": {
+                        "hidden": {
+                          "type": "boolean"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "confidenceThreshold": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "hidden",
+                        "required",
+                        "confidenceThreshold"
+                      ]
+                    },
+                    "parties": {
+                      "type": "object",
+                      "properties": {
+                        "buyer": {
+                          "type": "object",
+                          "properties": {
+                            "city": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "name": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "state": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "street": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "address": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "country": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "zipCode": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "headerUrl": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "headerName": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "headerPhone": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "addressBlock": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "headerAddress": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "city",
+                            "name",
+                            "state",
+                            "street",
+                            "address",
+                            "country",
+                            "zipCode",
+                            "headerUrl",
+                            "headerName",
+                            "headerPhone",
+                            "addressBlock",
+                            "headerAddress"
+                          ]
+                        },
+                        "billTo": {
+                          "type": "object",
+                          "properties": {
+                            "city": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "name": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "state": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "street": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "address": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "country": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "zipCode": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "addressBlock": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "city",
+                            "name",
+                            "state",
+                            "street",
+                            "address",
+                            "country",
+                            "zipCode",
+                            "addressBlock"
+                          ]
+                        },
+                        "shipTo": {
+                          "type": "object",
+                          "properties": {
+                            "city": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "name": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "state": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "street": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "address": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "country": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "zipCode": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "addressBlock": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "city",
+                            "name",
+                            "state",
+                            "street",
+                            "address",
+                            "country",
+                            "zipCode",
+                            "addressBlock"
+                          ]
+                        },
+                        "vendor": {
+                          "type": "object",
+                          "properties": {
+                            "city": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "name": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "state": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "street": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "address": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "country": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "zipCode": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "headerUrl": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "headerName": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "headerPhone": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "addressBlock": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            },
+                            "headerAddress": {
+                              "type": "object",
+                              "properties": {
+                                "hidden": {
+                                  "type": "boolean"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "confidenceThreshold": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "hidden",
+                                "required",
+                                "confidenceThreshold"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "city",
+                            "name",
+                            "state",
+                            "street",
+                            "address",
+                            "country",
+                            "zipCode",
+                            "headerUrl",
+                            "headerName",
+                            "headerPhone",
+                            "addressBlock",
+                            "headerAddress"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "buyer",
+                        "billTo",
+                        "shipTo",
+                        "vendor"
+                      ]
+                    },
+                    "shipVia": {
+                      "type": "object",
+                      "properties": {
+                        "hidden": {
+                          "type": "boolean"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "confidenceThreshold": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "hidden",
+                        "required",
+                        "confidenceThreshold"
+                      ]
+                    },
+                    "subtotal": {
+                      "type": "object",
+                      "properties": {
+                        "hidden": {
+                          "type": "boolean"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "confidenceThreshold": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "hidden",
+                        "required",
+                        "confidenceThreshold"
+                      ]
+                    },
+                    "amountDue": {
+                      "type": "object",
+                      "properties": {
+                        "hidden": {
+                          "type": "boolean"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "confidenceThreshold": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "hidden",
+                        "required",
+                        "confidenceThreshold"
+                      ]
+                    },
+                    "signatures": {
+                      "type": "object",
+                      "properties": {
+                        "hidden": {
+                          "type": "boolean"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "confidenceThreshold": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "hidden",
+                        "required",
+                        "confidenceThreshold"
+                      ]
+                    },
+                    "deliveryDate": {
+                      "type": "object",
+                      "properties": {
+                        "hidden": {
+                          "type": "boolean"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "confidenceThreshold": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "hidden",
+                        "required",
+                        "confidenceThreshold"
+                      ]
+                    },
+                    "paymentTerms": {
+                      "type": "object",
+                      "properties": {
+                        "hidden": {
+                          "type": "boolean"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "confidenceThreshold": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "hidden",
+                        "required",
+                        "confidenceThreshold"
+                      ]
+                    },
+                    "requiredByDate": {
+                      "type": "object",
+                      "properties": {
+                        "hidden": {
+                          "type": "boolean"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "confidenceThreshold": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "hidden",
+                        "required",
+                        "confidenceThreshold"
+                      ]
+                    },
+                    "purchaseOrderDate": {
+                      "type": "object",
+                      "properties": {
+                        "hidden": {
+                          "type": "boolean"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "confidenceThreshold": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "hidden",
+                        "required",
+                        "confidenceThreshold"
+                      ]
+                    },
+                    "purchaseOrderNumber": {
+                      "type": "object",
+                      "properties": {
+                        "hidden": {
+                          "type": "boolean"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "confidenceThreshold": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "hidden",
+                        "required",
+                        "confidenceThreshold"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "fob",
+                    "tax",
+                    "total",
+                    "emails",
+                    "carrier",
+                    "parties",
+                    "shipVia",
+                    "subtotal",
+                    "amountDue",
+                    "signatures",
+                    "deliveryDate",
+                    "paymentTerms",
+                    "requiredByDate",
+                    "purchaseOrderDate",
+                    "purchaseOrderNumber"
+                  ]
+                },
+                "tables": {
+                  "type": "object",
+                  "properties": {
+                    "table1": {
+                      "type": "object",
+                      "properties": {
+                        "tax": {
+                          "type": "object",
+                          "properties": {
+                            "hidden": {
+                              "type": "boolean"
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "confidenceThreshold": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "hidden",
+                            "required",
+                            "confidenceThreshold"
+                          ]
+                        },
+                        "vat": {
+                          "type": "object",
+                          "properties": {
+                            "hidden": {
+                              "type": "boolean"
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "confidenceThreshold": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "hidden",
+                            "required",
+                            "confidenceThreshold"
+                          ]
+                        },
+                        "price": {
+                          "type": "object",
+                          "properties": {
+                            "hidden": {
+                              "type": "boolean"
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "confidenceThreshold": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "hidden",
+                            "required",
+                            "confidenceThreshold"
+                          ]
+                        },
+                        "vatRate": {
+                          "type": "object",
+                          "properties": {
+                            "hidden": {
+                              "type": "boolean"
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "confidenceThreshold": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "hidden",
+                            "required",
+                            "confidenceThreshold"
+                          ]
+                        },
+                        "quantity": {
+                          "type": "object",
+                          "properties": {
+                            "hidden": {
+                              "type": "boolean"
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "confidenceThreshold": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "hidden",
+                            "required",
+                            "confidenceThreshold"
+                          ]
+                        },
+                        "unitPrice": {
+                          "type": "object",
+                          "properties": {
+                            "hidden": {
+                              "type": "boolean"
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "confidenceThreshold": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "hidden",
+                            "required",
+                            "confidenceThreshold"
+                          ]
+                        },
+                        "lineNumber": {
+                          "type": "object",
+                          "properties": {
+                            "hidden": {
+                              "type": "boolean"
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "confidenceThreshold": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "hidden",
+                            "required",
+                            "confidenceThreshold"
+                          ]
+                        },
+                        "description": {
+                          "type": "object",
+                          "properties": {
+                            "hidden": {
+                              "type": "boolean"
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "confidenceThreshold": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "hidden",
+                            "required",
+                            "confidenceThreshold"
+                          ]
+                        },
+                        "productCode": {
+                          "type": "object",
+                          "properties": {
+                            "hidden": {
+                              "type": "boolean"
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "confidenceThreshold": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "hidden",
+                            "required",
+                            "confidenceThreshold"
+                          ]
+                        },
+                        "productType": {
+                          "type": "object",
+                          "properties": {
+                            "hidden": {
+                              "type": "boolean"
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "confidenceThreshold": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "hidden",
+                            "required",
+                            "confidenceThreshold"
+                          ]
+                        },
+                        "vendorQuote": {
+                          "type": "object",
+                          "properties": {
+                            "hidden": {
+                              "type": "boolean"
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "confidenceThreshold": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "hidden",
+                            "required",
+                            "confidenceThreshold"
+                          ]
+                        },
+                        "expectedDate": {
+                          "type": "object",
+                          "properties": {
+                            "hidden": {
+                              "type": "boolean"
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "confidenceThreshold": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "hidden",
+                            "required",
+                            "confidenceThreshold"
+                          ]
+                        },
+                        "maintenanceTo": {
+                          "type": "object",
+                          "properties": {
+                            "hidden": {
+                              "type": "boolean"
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "confidenceThreshold": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "hidden",
+                            "required",
+                            "confidenceThreshold"
+                          ]
+                        },
+                        "unitOfMeasure": {
+                          "type": "object",
+                          "properties": {
+                            "hidden": {
+                              "type": "boolean"
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "confidenceThreshold": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "hidden",
+                            "required",
+                            "confidenceThreshold"
+                          ]
+                        },
+                        "maintenanceFrom": {
+                          "type": "object",
+                          "properties": {
+                            "hidden": {
+                              "type": "boolean"
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "confidenceThreshold": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "hidden",
+                            "required",
+                            "confidenceThreshold"
+                          ]
+                        },
+                        "additionalCharges": {
+                          "type": "object",
+                          "properties": {
+                            "hidden": {
+                              "type": "boolean"
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "confidenceThreshold": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "hidden",
+                            "required",
+                            "confidenceThreshold"
+                          ]
+                        },
+                        "purchaseOrderNumber": {
+                          "type": "object",
+                          "properties": {
+                            "hidden": {
+                              "type": "boolean"
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "confidenceThreshold": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "hidden",
+                            "required",
+                            "confidenceThreshold"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "tax",
+                        "vat",
+                        "price",
+                        "vatRate",
+                        "quantity",
+                        "unitPrice",
+                        "lineNumber",
+                        "description",
+                        "productCode",
+                        "productType",
+                        "vendorQuote",
+                        "expectedDate",
+                        "maintenanceTo",
+                        "unitOfMeasure",
+                        "maintenanceFrom",
+                        "additionalCharges",
+                        "purchaseOrderNumber"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "table1"
+                  ]
+                },
+                "prompts": {
+                  "type": "object",
+                  "properties": {
+                    "customerNo": {
+                      "type": "object",
+                      "properties": {
+                        "hidden": {
+                          "type": "boolean"
+                        },
+                        "prompt": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "confidenceThreshold": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "hidden",
+                        "prompt",
+                        "source",
+                        "required",
+                        "confidenceThreshold"
+                      ]
+                    },
+                    "shippingHandling": {
+                      "type": "object",
+                      "properties": {
+                        "hidden": {
+                          "type": "boolean"
+                        },
+                        "prompt": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "confidenceThreshold": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "hidden",
+                        "prompt",
+                        "source",
+                        "required",
+                        "confidenceThreshold"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "customerNo",
+                    "shippingHandling"
+                  ]
+                }
+              },
+              "required": [
+                "fields",
+                "tables",
+                "prompts"
+              ]
+            },
+            "modelSettings": {
+              "type": "object",
+              "properties": {
+                "model": {
+                  "type": "string"
+                },
+                "piiMasking": {
+                  "type": "boolean"
+                },
+                "promptVersion": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "model",
+                "piiMasking",
+                "promptVersion"
+              ]
+            }
+          },
+          "required": [
+            "output",
+            "modelSettings"
+          ]
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "content",
+        "version"
+      ]
+    },
+    "createdBy": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "string"
+    },
+    "registration": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "message"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "organizationId",
+    "name",
+    "description",
+    "type",
+    "empowerWith",
+    "configuration",
+    "createdBy",
+    "createdAt",
+    "updatedAt",
+    "registration"
+  ]
+}

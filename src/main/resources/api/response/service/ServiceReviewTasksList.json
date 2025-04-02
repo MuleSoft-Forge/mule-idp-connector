@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "docActionId": {
+        "type": "string",
+        "format": "uuid",
+        "example": "c333413d-6593-4423-b3d4-f8ff4bf88917"
+      },
+      "docOperationId": {
+        "type": "string",
+        "format": "uuid",
+        "example": "6209cc35-5bb7-4dfb-a3f6-95bedaee012a"
+      },
+      "docOperationCreationDate": {
+        "type": "string",
+        "format": "date-time",
+        "example": "2025-02-24T11:41:53.261960Z"
+      },
+      "docFileId": {
+        "type": "string",
+        "format": "uuid",
+        "example": "6ae7459f-7946-4401-9817-23a6dbfc9921"
+      },
+      "docFileName": {
+        "type": "string",
+        "example": "IDP-PO-CD656092-BurlingtonTextiles-Manual.pdf"
+      }
+    },
+    "required": [
+      "docActionId",
+      "docOperationId",
+      "docOperationCreationDate",
+      "docFileId",
+      "docFileName"
+    ]
+  },
+  "examples": [
+    [
+      {
+        "docActionId": "c333413d-6593-4423-b3d4-f8ff4bf88917",
+        "docOperationId": "6209cc35-5bb7-4dfb-a3f6-95bedaee012a",
+        "docOperationCreationDate": "2025-02-24T11:41:53.261960Z",
+        "docFileId": "6ae7459f-7946-4401-9817-23a6dbfc9921",
+        "docFileName": "IDP-PO-CD656092-BurlingtonTextiles-Manual.pdf"
+      },
+      {
+        "docActionId": "c333413d-6593-4423-b3d4-f8ff4bf88917",
+        "docOperationId": "55f18b37-78a2-4079-ae14-1bebb5764762",
+        "docOperationCreationDate": "2025-02-24T13:50:34.060675Z",
+        "docFileId": "5b71e531-520f-4fd9-9fe4-0f8bcecab771",
+        "docFileName": "IDP-PO-CD656092-BurlingtonTextiles-Manual.pdf"
+      },
+      {
+        "docActionId": "c333413d-6593-4423-b3d4-f8ff4bf88917",
+        "docOperationId": "b72c1a09-f2d1-459a-ad22-ffaa61efd20c",
+        "docOperationCreationDate": "2025-02-25T06:55:24.319585Z",
+        "docFileId": "e99784ba-ed52-4468-9d19-29924be57a1d",
+        "docFileName": "IDP-PO-CD656092-BurlingtonTextiles-Manual.pdf"
+      },
+      {
+        "docActionId": "c333413d-6593-4423-b3d4-f8ff4bf88917",
+        "docOperationId": "ff7cb694-8582-4a56-b85b-30d42ff00b35",
+        "docOperationCreationDate": "2025-02-27T10:28:18.559100Z",
+        "docFileId": "db926e6b-ddeb-4e02-a235-08e25aea7f8b",
+        "docFileName": "IDP-PO-CD656092-BurlingtonTextiles-Manual.pdf"
+      }
+    ]
+  ]
+}

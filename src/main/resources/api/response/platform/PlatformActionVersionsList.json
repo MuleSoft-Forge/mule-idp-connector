@@ -1,0 +1,151 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "organizationId": {
+        "type": "string",
+        "examples": ["01f79c97-9a83-4194-b922-15b64fd7305e"]
+      },
+      "actionId": {
+        "type": "string",
+        "examples": ["c333413d-6593-4423-b3d4-f8ff4bf88917"]
+      },
+      "version": {
+        "type": "string",
+        "examples": ["1.0.0", "1.1.0", "1.2.0"]
+      },
+      "status": {
+        "type": "string",
+        "examples": ["SUCCESS"]
+      },
+      "configuration": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "modelSettings": {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "examples": ["llmgateway__OpenAIGPT4Omni_08_06"]
+              },
+              "piiMasking": {
+                "type": "boolean",
+                "examples": [false]
+              },
+              "promptVersion": {
+                "type": "string",
+                "examples": ["1.0.0"]
+              }
+            },
+            "required": ["model", "piiMasking", "promptVersion"]
+          },
+          "version": {
+            "type": "string",
+            "examples": ["1.2.0"]
+          }
+        },
+        "required": ["content", "modelSettings", "version"]
+      },
+      "operations": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "examples": [
+                "80beccf9-a719-4bb3-b12b-81840f43ac09",
+                "cb7934c7-c9d8-4afb-b545-c034e0b453f7",
+                "01bed9ca-db9e-45c5-bdec-2189ae15a2b7",
+                "d52d953a-b660-41df-9136-95b69144281e",
+                "90bc283f-0d02-43d1-aedf-7e17adea56d3",
+                "7f070808-6d52-4c56-a13e-a3d1a375708a"
+              ]
+            },
+            "type": {
+              "type": "string",
+              "examples": ["EXCHANGE_PUBLICATION", "RUNTIME_PUBLICATION"]
+            },
+            "status": {
+              "type": "string",
+              "examples": ["SUCCESS"]
+            },
+            "result": {
+              "type": "string",
+              "examples": [
+                "{\"status\":\"completed\",\"steps\":[{\"description\":\"Publishing asset\",\"status\":\"completed\",\"errors\":}]}",
+                "{\"id\":\"a29d5f1a-95eb-4927-85be-f7d00cacc063\",\"organizationId\":\"01f79c97-9a83-4194-b922-15b64fd7305e\",\"actionId\":\"c333413d-6593-4423-b3d4-f8ff4bf88917\",\"actionVersion\":\"1.0.0\"}",
+                "{\"id\":\"aff80891-762a-4bac-b046-aa8b7dcf6505\",\"organizationId\":\"01f79c97-9a83-4194-b922-15b64fd7305e\",\"actionId\":\"c333413d-6593-4423-b3d4-f8ff4bf88917\",\"actionVersion\":\"1.1.0\"}",
+                "{\"id\":\"e2ae84c9-81dc-4f01-b6af-04fb509f74e3\",\"organizationId\":\"01f79c97-9a83-4194-b922-15b64fd7305e\",\"actionId\":\"c333413d-6593-4423-b3d4-f8ff4bf88917\",\"actionVersion\":\"1.2.0\"}"
+              ]
+            },
+            "info": {
+              "type": "object",
+              "additionalProperties": true,
+              "examples": [{}, { "baseUrl": "https://idp-rt.us-east-1.anypoint.mulesoft.com" }]
+            },
+            "createdAt": {
+              "type": "string",
+              "format": "date-time",
+              "examples": [
+                "2025-02-24T10:00:25.817756Z",
+                "2025-02-24T10:00:25.812208Z",
+                "2025-02-24T10:05:33.883057Z",
+                "2025-02-24T10:05:33.87743Z",
+                "2025-02-24T10:09:44.191964Z",
+                "2025-02-24T10:09:44.197232Z"
+              ]
+            },
+            "updatedAt": {
+              "type": "string",
+              "format": "date-time",
+              "examples": [
+                "2025-02-24T10:00:42.820511Z",
+                "2025-02-24T10:00:25.912756Z",
+                "2025-02-24T10:05:50.647349Z",
+                "2025-02-24T10:05:33.950368Z",
+                "2025-02-24T10:09:44.26483Z",
+                "2025-02-24T10:10:00.815454Z"
+              ]
+            }
+          },
+          "required": ["id", "type", "status", "result", "info", "createdAt", "updatedAt"]
+        }
+      },
+      "createdAt": {
+        "type": "string",
+        "format": "date-time",
+        "examples": [
+          "2025-02-24T10:00:25.800172Z",
+          "2025-02-24T10:05:33.864691Z",
+          "2025-02-24T10:09:44.179081Z"
+        ]
+      },
+      "updatedAt": {
+        "type": "string",
+        "format": "date-time",
+        "examples": [
+          "2025-02-24T10:00:25.800172Z",
+          "2025-02-24T10:05:33.864691Z",
+          "2025-02-24T10:09:44.179081Z"
+        ]
+      }
+    },
+    "required": [
+      "organizationId",
+      "actionId",
+      "version",
+      "status",
+      "configuration",
+      "operations",
+      "createdAt",
+      "updatedAt"
+    ]
+  }
+}
