@@ -11,7 +11,7 @@ import org.mule.extension.idp.internal.connection.IDPConnection;
 import org.mule.extension.idp.internal.error.IDPErrorProvider;
 import org.mule.extension.idp.internal.metadata.*;
 import org.mule.extension.idp.internal.operation.utils.IDPOperationsUtils;
-import org.mule.extension.idp.internal.operation.utils.IDPPageable;
+import org.mule.extension.idp.internal.operation.utils.IDPPageableNoSort;
 import org.mule.extension.idp.internal.operation.utils.IDPSubmitDocOptions;
 import org.mule.extension.idp.internal.operation.valueprovider.IDPActionIdValueProvider;
 import org.mule.extension.idp.internal.operation.valueprovider.IDPVersionIdValueProvider;
@@ -128,7 +128,7 @@ public class IDPServiceOperations {
     @Throws(IDPErrorProvider.class)
     @OutputResolver(output = IDPServiceReviewTasksListOutputResolver.class)
     public void listReviewTasks(@Connection IDPConnection connection,
-                                @ParameterGroup(name = "Pageable [optional]") IDPPageable pageable,
+                                @ParameterGroup(name = "Pageable [optional]") IDPPageableNoSort pageable,
                                 CompletionCallback<InputStream, Void> completionCallback) throws ModuleException {
 
         Map<String, String> uriParameters = new HashMap<>();
@@ -142,9 +142,6 @@ public class IDPServiceOperations {
                     }
                     if (pageable.getSize() > 0) {
                         requestBuilder.addQueryParam("size", String.valueOf(pageable.getSize()));
-                    }
-                    if (pageable.getSort() != null) {
-                        requestBuilder.addQueryParam("sort", String.valueOf(pageable.getSort()));
                     }
                 }, uri, HttpConstants.Method.GET, IDPAuthentication.BASIC_AUTH, "")
                 .whenCompleteAsync(IDPOperationsUtils.createCompletionHandler(completionCallback, uri));
