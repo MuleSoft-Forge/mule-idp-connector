@@ -7,6 +7,7 @@
 package org.mule.extension.idp.internal.extension;
 
 import org.mule.extension.idp.internal.config.IDPConfiguration;
+import org.mule.extension.idp.internal.config.IDPProxyConfiguration;
 import org.mule.extension.idp.internal.error.IDPError;
 import org.mule.runtime.api.meta.Category;
 import org.mule.runtime.extension.api.annotation.Extension;

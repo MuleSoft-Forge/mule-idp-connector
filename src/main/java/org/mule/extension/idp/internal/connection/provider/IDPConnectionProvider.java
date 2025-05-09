@@ -7,6 +7,7 @@
 package org.mule.extension.idp.internal.connection.provider;
 
 
+import org.mule.extension.idp.internal.config.IDPProxyConfiguration;
 import org.mule.extension.idp.internal.connection.IDPAuthentication;
 import org.mule.extension.idp.internal.connection.IDPConnection;
 import org.mule.extension.idp.internal.error.IDPError;
@@ -63,9 +64,9 @@ public class IDPConnectionProvider implements CachedConnectionProvider<IDPConnec
         return tlsContextFactory;
     }
 
-    //@ParameterGroup(name = "Proxy")
-    //@NullSafe
-    //private IDPProxyConfiguration IDPProxyConfiguration;
+    @ParameterGroup(name = "Proxy")
+    @NullSafe
+    private IDPProxyConfiguration proxyConfiguration;
 
     @Inject
     protected HttpService httpService;
@@ -100,7 +101,7 @@ public class IDPConnectionProvider implements CachedConnectionProvider<IDPConnec
         HttpClient httpClient = httpService.getClientFactory().create(new HttpClientConfiguration.Builder()
                 .setName(configName)
                 .setTlsContextFactory(getTlsContextFactory())
-//                .setProxyConfig(IDPProxyConfiguration.getHost() != null ? IDPProxyConfiguration : null)
+                .setProxyConfig(proxyConfiguration)
                 .build());
         httpClient.start();
         return httpClient;
