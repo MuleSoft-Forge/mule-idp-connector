@@ -60,13 +60,19 @@ public class IDPConnectionProvider implements CachedConnectionProvider<IDPConnec
     @Optional
     private TlsContextFactory tlsContextFactory;
 
+    @Parameter
+    @Placement(order = 1, tab="Proxy")
+    @DisplayName("Proxy")
+    @Optional
+    private IDPProxyConfiguration proxyConfiguration;
+
     private TlsContextFactory getTlsContextFactory() {
         return tlsContextFactory;
     }
 
-    @ParameterGroup(name = "Proxy")
-    @NullSafe
-    private IDPProxyConfiguration proxyConfiguration;
+    private IDPProxyConfiguration getProxyConfiguration() {
+        return proxyConfiguration;
+    }
 
     @Inject
     protected HttpService httpService;
@@ -101,7 +107,7 @@ public class IDPConnectionProvider implements CachedConnectionProvider<IDPConnec
         HttpClient httpClient = httpService.getClientFactory().create(new HttpClientConfiguration.Builder()
                 .setName(configName)
                 .setTlsContextFactory(getTlsContextFactory())
-                .setProxyConfig(proxyConfiguration)
+                .setProxyConfig(getProxyConfiguration())
                 .build());
         httpClient.start();
         return httpClient;
