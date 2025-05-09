@@ -55,13 +55,13 @@ public class IDPConnectionProvider implements CachedConnectionProvider<IDPConnec
     IDPAnypointAccountDetails accountLoginDetails;
 
     @Parameter
-    @Placement(order = 3, tab=SECURITY_TAB)
+    @Placement(tab=SECURITY_TAB)
     @DisplayName("TLS")
     @Optional
     private TlsContextFactory tlsContextFactory;
 
     @Parameter
-    @Placement(order = 1, tab="Proxy")
+    @Placement(tab="Proxy")
     @DisplayName("Proxy")
     @Optional
     private IDPProxyConfiguration proxyConfiguration;
