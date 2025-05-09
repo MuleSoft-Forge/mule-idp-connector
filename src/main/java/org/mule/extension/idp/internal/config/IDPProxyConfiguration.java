@@ -14,6 +14,8 @@ import org.mule.runtime.extension.api.annotation.param.display.Placement;
 import org.mule.runtime.extension.api.annotation.param.display.Summary;
 import org.mule.runtime.http.api.client.proxy.ProxyConfig;
 
+import java.util.Objects;
+
 public class IDPProxyConfiguration implements ProxyConfig {
 
     /**
@@ -95,4 +97,15 @@ public class IDPProxyConfiguration implements ProxyConfig {
         return nonProxyHosts;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof IDPProxyConfiguration)) return false;
+        IDPProxyConfiguration that = (IDPProxyConfiguration) o;
+        return port == that.port && Objects.equals(host, that.host) && Objects.equals(username, that.username) && Objects.equals(password, that.password) && Objects.equals(nonProxyHosts, that.nonProxyHosts);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(host, port, username, password, nonProxyHosts);
+    }
 }
