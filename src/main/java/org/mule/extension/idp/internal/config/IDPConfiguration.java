@@ -9,13 +9,12 @@ package org.mule.extension.idp.internal.config;
 import org.mule.extension.idp.internal.connection.provider.IDPConnectionProvider;
 import org.mule.extension.idp.internal.operation.IDPPlatformOperations;
 import org.mule.extension.idp.internal.operation.IDPServiceOperations;
-import org.mule.extension.idp.internal.operation.IDPUtilsPDFOperations;
 import org.mule.runtime.extension.api.annotation.Configuration;
 import org.mule.runtime.extension.api.annotation.Operations;
 import org.mule.runtime.extension.api.annotation.connectivity.ConnectionProviders;
 
 @Configuration(name = "config")
 @ConnectionProviders(IDPConnectionProvider.class)
-@Operations({IDPPlatformOperations.class, IDPServiceOperations.class, IDPUtilsPDFOperations.class})
+@Operations({IDPPlatformOperations.class, IDPServiceOperations.class})
 public class IDPConfiguration {
 }

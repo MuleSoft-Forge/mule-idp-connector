@@ -12,8 +12,9 @@ import org.mule.runtime.extension.api.annotation.param.display.DisplayName;
 import org.mule.runtime.extension.api.annotation.param.display.Password;
 import org.mule.runtime.extension.api.annotation.param.display.Placement;
 import org.mule.runtime.extension.api.annotation.param.display.Summary;
+import org.mule.runtime.http.api.client.proxy.ProxyConfig;
 
-public class IDPProxyConfiguration implements org.mule.runtime.http.api.client.proxy.ProxyConfig {
+public class IDPProxyConfiguration implements ProxyConfig {
 
     /**
      * The hostname of the HTTP proxy e.g. localhost This field also requires the port to be set.
@@ -33,7 +34,7 @@ public class IDPProxyConfiguration implements org.mule.runtime.http.api.client.p
     @Summary("The port number of the HTTP proxy which also requires the host name to be set.")
     @DisplayName("Port")
     @Placement(tab = "Proxy", order = 2)
-    private Integer port;
+    private int port;
 
     /**
      * The username which should be supplied to the HTTP proxy on every request to NetSuite. This field is optional, since a user might want to pass through an unauthenticated HTTP
