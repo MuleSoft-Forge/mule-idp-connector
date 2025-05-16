@@ -60,7 +60,7 @@ public class IDPActionIdValueProvider implements ValueProvider {
         Reference<Throwable> throwableReference = new Reference<>();
 
         try {
-            new IDPPlatformOperations().listActions(connection, new IDPPageable(0,10, IDPSortOption.UPDATED_AT_ASC), createCallbackHandler(countDownLatch, valuesReference, throwableReference, EXPRESSION));
+            new IDPPlatformOperations().listActions(connection, new IDPPageable(0,0, IDPSortOption.UPDATED_AT_DESC), createCallbackHandler(countDownLatch, valuesReference, throwableReference, EXPRESSION));
         } catch (ModuleException e) {
             throw new RuntimeException(e);
         }
