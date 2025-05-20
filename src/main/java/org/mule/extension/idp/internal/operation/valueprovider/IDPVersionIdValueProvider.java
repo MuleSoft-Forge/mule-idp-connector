@@ -66,7 +66,7 @@ public class IDPVersionIdValueProvider implements ValueProvider {
 
         try {
 
-            new IDPPlatformOperations().listActionVersions(connection, actionId,new IDPPageableVersion(0,0, IDPVersionSortOption.VERSION_ASC), createCallbackHandler(countDownLatch, valuesReference, throwableReference, EXPRESSION));
+            new IDPPlatformOperations().listActionVersions(connection, actionId,new IDPPageableVersion(0,1999999999, IDPVersionSortOption.VERSION_ASC), createCallbackHandler(countDownLatch, valuesReference, throwableReference, EXPRESSION));
 
         } catch (ModuleException e) {
             throw new RuntimeException(e);
