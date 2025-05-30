@@ -28,7 +28,7 @@ import static org.mule.sdk.api.meta.JavaVersion.*;
 @ErrorTypes(IDPError.class)
 @Xml(prefix ="mule-idp")
 @Configurations(IDPConfiguration.class)
-@JavaVersionSupport({JAVA_8, JAVA_11})
+@JavaVersionSupport({JAVA_8, JAVA_11, JAVA_17})
 @RequiresEnterpriseLicense(allowEvaluationLicense = false)
 @MinMuleVersion("4.6.0")
 public class IDPConnector {

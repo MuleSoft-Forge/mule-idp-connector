@@ -9,7 +9,6 @@ package org.mule.extension.idp.internal.operation;
 import org.mule.extension.idp.internal.connection.IDPAuthentication;
 import org.mule.extension.idp.internal.connection.IDPConnection;
 import org.mule.extension.idp.internal.error.IDPErrorProvider;
-import org.mule.extension.idp.internal.metadata.*;
 import org.mule.extension.idp.internal.operation.utils.IDPOperationsUtils;
 import org.mule.extension.idp.internal.operation.utils.IDPPageable;
 import org.mule.extension.idp.internal.operation.utils.IDPPageableVersion;
@@ -18,8 +17,8 @@ import org.mule.extension.idp.internal.operation.valueprovider.IDPVersionIdValue
 import org.mule.runtime.api.metadata.TypedValue;
 import org.mule.runtime.extension.api.annotation.Expression;
 import org.mule.runtime.extension.api.annotation.error.Throws;
-import org.mule.runtime.extension.api.annotation.metadata.OutputResolver;
-import org.mule.runtime.extension.api.annotation.metadata.TypeResolver;
+import org.mule.runtime.extension.api.annotation.metadata.fixed.InputJsonType;
+import org.mule.runtime.extension.api.annotation.metadata.fixed.OutputJsonType;
 import org.mule.runtime.extension.api.annotation.param.*;
 import org.mule.runtime.extension.api.annotation.param.display.DisplayName;
 import org.mule.runtime.extension.api.annotation.param.display.Summary;
@@ -37,6 +36,7 @@ import java.util.Map;
 
 import static org.mule.extension.idp.internal.operation.utils.IDPEndpoints.*;
 import static org.mule.runtime.api.meta.ExpressionSupport.REQUIRED;
+import static org.mule.runtime.extension.api.annotation.param.MediaType.APPLICATION_JSON;
 
 public class IDPPlatformOperations {
     private final Logger LOGGER = LoggerFactory.getLogger(IDPPlatformOperations.class);
@@ -47,9 +47,9 @@ public class IDPPlatformOperations {
             "<li> Use of MuleSoft Anypoint Platform API" +
             "<li> Anypoint Account login must have IDP permissions" +
             "</ul>")
-    @MediaType(MediaType.APPLICATION_JSON)
+    @MediaType(value = APPLICATION_JSON, strict = false)
     @Throws(IDPErrorProvider.class)
-    @OutputResolver(output = IDPPlatformActionsListOutputResolver.class)
+    @OutputJsonType(schema = "api/response/platform/PlatformActionsList.json")
     public void listActions(@Connection IDPConnection connection,
                             @ParameterGroup(name = "Pageable [optional]") IDPPageable pageable,
                             CompletionCallback<InputStream, Void> completionCallback) throws ModuleException {
@@ -79,9 +79,9 @@ public class IDPPlatformOperations {
             "<li> Use of MuleSoft Anypoint Platform API" +
             "<li> Anypoint Account login must have IDP permissions" +
             "</ul>")
-    @MediaType(MediaType.APPLICATION_JSON)
+    @MediaType(value = APPLICATION_JSON, strict = false)
     @Throws(IDPErrorProvider.class)
-    @OutputResolver(output = IDPPlatformActionVersionsListOutputResolver.class)
+    @OutputJsonType(schema = "api/response/platform/PlatformActionVersionsList.json")
     public void listActionVersions(@Connection IDPConnection connection,
                                    @OfValues(IDPActionIdValueProvider.class) String actionId,
                                    @ParameterGroup(name = "Pageable [optional]") IDPPageableVersion pageable,
@@ -114,9 +114,9 @@ public class IDPPlatformOperations {
             "<li> Use of MuleSoft Anypoint Platform API" +
             "<li> Anypoint Account login must have IDP permissions" +
             "</ul>")
-    @MediaType(MediaType.APPLICATION_JSON)
+    @MediaType(value = APPLICATION_JSON, strict = false)
     @Throws(IDPErrorProvider.class)
-    @OutputResolver(output = IDPPlatformActionVersionGetOutputResolver.class)
+    @OutputJsonType(schema = "api/response/platform/PlatformActionVersionGet.json")
     public void getActionVersion(@Connection IDPConnection connection,
                                  @OfValues(IDPActionIdValueProvider.class) String actionId,
                                  @OfValues(IDPVersionIdValueProvider.class) String versionSemantic,
@@ -139,9 +139,9 @@ public class IDPPlatformOperations {
             "<li> Use of MuleSoft Anypoint Platform API" +
             "<li> Anypoint Account login must have IDP permissions" +
             "</ul>")
-    @MediaType(MediaType.APPLICATION_JSON)
+    @MediaType(value = APPLICATION_JSON, strict = false)
     @Throws(IDPErrorProvider.class)
-    @OutputResolver(output = IDPPlatformActionVersionGetOutputResolver.class)
+    @OutputJsonType(schema = "api/response/platform/PlatformActionVersionGet.json")
     public void getActionDetails(@Connection IDPConnection connection,
                                  @OfValues(IDPActionIdValueProvider.class) String actionId,
                                  @OfValues(IDPVersionIdValueProvider.class) String versionSemantic,
@@ -164,9 +164,9 @@ public class IDPPlatformOperations {
             "<li> Use of MuleSoft Anypoint Platform API" +
             "<li> Anypoint Account login must have IDP permissions" +
             "</ul>")
-    @MediaType(MediaType.APPLICATION_JSON)
+    @MediaType(value = APPLICATION_JSON, strict = false)
     @Throws(IDPErrorProvider.class)
-    @OutputResolver(output = IDPPlatformActionReviewersListOutputResolver.class)
+    @OutputJsonType(schema = "api/response/platform/PlatformActionReviewersList.json")
     public void listActionReviewers(@Connection IDPConnection connection,
                                     @OfValues(IDPActionIdValueProvider.class) String actionId,
                                     CompletionCallback<InputStream, Void> completionCallback) throws ModuleException {
@@ -187,12 +187,12 @@ public class IDPPlatformOperations {
             "<li> Use of MuleSoft Anypoint Platform API" +
             "<li> Anypoint Account login must have IDP permissions" +
             "</ul>")
-    @MediaType(MediaType.APPLICATION_JSON)
+    @MediaType(value = APPLICATION_JSON, strict = false)
     @Throws(IDPErrorProvider.class)
-    @OutputResolver(output = IDPPlatformActionReviewersUpdateOutputResolver.class)
+    @OutputJsonType(schema = "api/response/platform/PlatformActionReviewersUpdate.json")
     public void updateActionReviewers(@Connection IDPConnection connection,
                                       @OfValues(IDPActionIdValueProvider.class) String actionId,
-                                      @Expression(REQUIRED) @Optional(defaultValue="#[payload]") @TypeResolver(IDPPlatformActionReviewersUpdateInputResolver.class) TypedValue<InputStream> contents,
+                                      @Expression(REQUIRED) @Optional(defaultValue="#[payload]") @InputJsonType(schema = "api/request/platform/PlatformActionReviewersUpdate.json") TypedValue<InputStream> contents,
                                       CompletionCallback<InputStream, Void> completionCallback) throws ModuleException {
 
         Map<String, String> uriParameters = new HashMap<>();
