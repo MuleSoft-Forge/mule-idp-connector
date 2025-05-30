@@ -9,7 +9,6 @@ package org.mule.extension.idp.internal.operation;
 import org.mule.extension.idp.internal.connection.IDPAuthentication;
 import org.mule.extension.idp.internal.connection.IDPConnection;
 import org.mule.extension.idp.internal.error.IDPErrorProvider;
-import org.mule.extension.idp.internal.metadata.*;
 import org.mule.extension.idp.internal.operation.utils.IDPOperationsUtils;
 import org.mule.extension.idp.internal.operation.utils.IDPPageableNoSort;
 import org.mule.extension.idp.internal.operation.utils.IDPSubmitDocOptions;
@@ -19,8 +18,8 @@ import org.mule.runtime.api.exception.MuleRuntimeException;
 import org.mule.runtime.api.metadata.TypedValue;
 import org.mule.runtime.extension.api.annotation.Expression;
 import org.mule.runtime.extension.api.annotation.error.Throws;
-import org.mule.runtime.extension.api.annotation.metadata.OutputResolver;
-import org.mule.runtime.extension.api.annotation.metadata.TypeResolver;
+import org.mule.runtime.extension.api.annotation.metadata.fixed.InputJsonType;
+import org.mule.runtime.extension.api.annotation.metadata.fixed.OutputJsonType;
 import org.mule.runtime.extension.api.annotation.param.*;
 import org.mule.runtime.extension.api.annotation.param.display.DisplayName;
 import org.mule.runtime.extension.api.annotation.values.OfValues;
@@ -43,14 +42,15 @@ import java.util.Map;
 
 import static org.mule.extension.idp.internal.operation.utils.IDPEndpoints.*;
 import static org.mule.runtime.api.meta.ExpressionSupport.REQUIRED;
+import static org.mule.runtime.extension.api.annotation.param.MediaType.APPLICATION_JSON;
 
 public class IDPServiceOperations {
     private final Logger LOGGER = LoggerFactory.getLogger(IDPServiceOperations.class);
 
     @DisplayName("Service IDP - Execution - Submit")
-    @MediaType(MediaType.APPLICATION_JSON)
+    @MediaType(value = APPLICATION_JSON, strict = false)
     @Throws(IDPErrorProvider.class)
-    @OutputResolver(output = IDPServiceExecutionSubmitOutputResolver.class)
+    @OutputJsonType(schema = "api/response/service/ServiceExecutionSubmit.json")
     public void submitExecution(@Connection IDPConnection connection,
                                 @OfValues(IDPActionIdValueProvider.class) String actionId,
                                 @OfValues(IDPVersionIdValueProvider.class) String versionSemantic,
@@ -98,9 +98,9 @@ public class IDPServiceOperations {
     }
 
     @DisplayName("Service IDP - Execution Result - Retrieve")
-    @MediaType(MediaType.APPLICATION_JSON)
+    @MediaType(value = APPLICATION_JSON, strict = false)
     @Throws(IDPErrorProvider.class)
-    @OutputResolver(output = IDPServiceExecutionResultRetrieveOutputResolver.class)
+    @OutputJsonType(schema = "api/response/service/ServiceExecutionResultRetrieve.json")
     public void retrieveExecutionResult(@Connection IDPConnection connection,
                                         @OfValues(IDPActionIdValueProvider.class) String actionId,
                                         @OfValues(IDPVersionIdValueProvider.class) String versionSemantic,
@@ -124,9 +124,9 @@ public class IDPServiceOperations {
     }
 
     @DisplayName("Service IDP - Review Tasks - List")
-    @MediaType(MediaType.APPLICATION_JSON)
+    @MediaType(value = APPLICATION_JSON, strict = false)
     @Throws(IDPErrorProvider.class)
-    @OutputResolver(output = IDPServiceReviewTasksListOutputResolver.class)
+    @OutputJsonType(schema = "api/response/service/ServiceReviewTasksList.json")
     public void listReviewTasks(@Connection IDPConnection connection,
                                 @ParameterGroup(name = "Pageable [optional]") IDPPageableNoSort pageable,
                                 CompletionCallback<InputStream, Void> completionCallback) throws ModuleException {
@@ -148,9 +148,9 @@ public class IDPServiceOperations {
     }
 
     @DisplayName("Service IDP - Review Task - Retrieve")
-    @MediaType(MediaType.APPLICATION_JSON)
+    @MediaType(value = APPLICATION_JSON, strict = false)
     @Throws(IDPErrorProvider.class)
-    @OutputResolver(output = IDPServiceReviewTaskGetOutputResolver.class)
+    @OutputJsonType(schema = "api/response/service/ServiceReviewTaskGet.json")
     public void retrieveReviewTask(@Connection IDPConnection connection,
                                    @OfValues(IDPActionIdValueProvider.class) String actionId,
                                    @NotNull String executionId,
@@ -169,7 +169,7 @@ public class IDPServiceOperations {
     }
 
     @DisplayName("Service IDP - Review Task - Delete")
-    @MediaType(MediaType.APPLICATION_JSON)
+    @MediaType(value = APPLICATION_JSON, strict = false)
     @Throws(IDPErrorProvider.class)
     public void deleteReviewTask(@Connection IDPConnection connection,
                                  @OfValues(IDPActionIdValueProvider.class) String actionId,
@@ -189,13 +189,13 @@ public class IDPServiceOperations {
     }
 
     @DisplayName("Service IDP - Review Task - Update")
-    @MediaType(MediaType.APPLICATION_JSON)
+    @MediaType(value = APPLICATION_JSON, strict = false)
     @Throws(IDPErrorProvider.class)
-    @OutputResolver(output = IDPServiceReviewTaskUpdateOutputResolver.class)
+    @OutputJsonType(schema = "api/response/service/ServiceReviewTaskUpdate.json")
     public void updateReviewTask(@Connection IDPConnection connection,
                                  @OfValues(IDPActionIdValueProvider.class) String actionId,
                                  @NotNull String executionId,
-                                 @Expression(REQUIRED) @Optional(defaultValue="#[payload]") @TypeResolver(IDPServiceReviewTaskUpdateInputResolver.class) TypedValue<InputStream> contents,
+                                 @Expression(REQUIRED) @Optional(defaultValue="#[payload]") @InputJsonType(schema = "api/request/service/ServiceReviewTaskUpdate.json") TypedValue<InputStream> contents,
                                  CompletionCallback<InputStream, Void> completionCallback) throws ModuleException {
 
         Map<String, String> uriParameters = new HashMap<>();
