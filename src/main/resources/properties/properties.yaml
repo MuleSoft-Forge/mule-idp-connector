@@ -1,0 +1,3 @@
+servicenow.user: "<enter your serviceNow developer account uswrname>"
+servicenow.password: "<enter your serviceNow developer account password>"
+servicenow.address: "<enter your serviceNow instance address>"

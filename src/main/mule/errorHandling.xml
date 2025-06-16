@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<error-handler name="errorHandlingError_Handler" doc:id="aae969fa-6e01-4b0b-9189-e25b908e9e3f" >
+		<on-error-propagate enableNotifications="true" logException="true" doc:name="On Error Propagate" doc:id="53c358c1-a36b-43eb-950d-8db9fda6a691" type="SERVICENOW:BAD_REQUEST">
+			<ee:transform doc:name="400 Error" doc:id="08d7ae76-66bc-431a-aed6-000ea65ac59c" >
+				<ee:message >
+					<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	"statusCode": 400,
+	"message": "Bad Request",
+	"description": error.description
+}]]></ee:set-payload>
+				</ee:message>
+				<ee:variables >
+					<ee:set-variable variableName="httpStatus" ><![CDATA[400]]></ee:set-variable>
+				</ee:variables>
+			</ee:transform>
+		</on-error-propagate>
+		<on-error-propagate enableNotifications="true" logException="true" doc:name="On Error Propagate" doc:id="b64117ed-f5eb-4a48-9053-a49da203d627" type="SERVICENOW:CONNECTIVITY">
+			<ee:transform doc:name="501 Error" doc:id="95bafbea-35fc-4382-9b91-8aab0a0f93fa" >
+				<ee:message >
+					<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	"statusCode": 501,
+	"message": "Failed to connect with ServiceNow",
+	"description": error.description
+}]]></ee:set-payload>
+				</ee:message>
+				<ee:variables >
+					<ee:set-variable variableName="httpStatus" ><![CDATA[501]]></ee:set-variable>
+				</ee:variables>
+			</ee:transform>
+		</on-error-propagate>
+		<on-error-propagate enableNotifications="true" logException="true" doc:name="On Error Propagate" doc:id="355c3452-a00d-45c4-995c-6744f2b45a5a" type="ANY">
+			<ee:transform doc:name="500 Error" doc:id="0ca94ce5-cb0a-4c2e-b877-7697a4773195" >
+				<ee:message >
+					<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	"statusCode": 500,
+	"message": "INTERNAL SERVER ERROR",
+	"description": error.description
+}]]></ee:set-payload>
+				</ee:message>
+				<ee:variables >
+					<ee:set-variable variableName="httpStatus" ><![CDATA[500]]></ee:set-variable>
+				</ee:variables>
+			</ee:transform>
+		</on-error-propagate>
+	</error-handler>
+</mule>
