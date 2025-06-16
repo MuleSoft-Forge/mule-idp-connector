@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:servicenow="http://www.mulesoft.org/schema/mule/servicenow" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/servicenow http://www.mulesoft.org/schema/mule/servicenow/current/mule-servicenow.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="ff2d65ba-e725-4517-9b7d-7c97a441619e" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<servicenow:config name="ServiceNow_Config" doc:name="ServiceNow Config" doc:id="6a9228d2-3310-488f-b760-43d7b1936ffd" >
+		<servicenow:basic-connection username="${servicenow.username}" password="${servicenow.password}" serviceAddress="${servicenow.address}" >
+			<servicenow:transport >
+				<servicenow:basic-auth-http-message-dispatcher-provider username="admin" password="cGoWib7E/U-7" />
+			</servicenow:transport>
+		</servicenow:basic-connection>
+	</servicenow:config>
+	<configuration-properties doc:name="Configuration properties" doc:id="28cb2c20-1c81-48d7-88e0-f67b4d3d852c" file="properties\properties.yaml" />
+	<flow name="servicenow-createIncident" doc:id="1e29c56f-60da-4331-b8ef-37075ef4c067" >
+		<http:listener doc:name="Listener" doc:id="575e211d-e564-4d22-90b7-f8d47765f8c2" config-ref="HTTP_Listener_config" path="/create-incident">
+			<http:error-response statusCode="#[vars.httpStatus]" >
+				<http:body ><![CDATA[#[payload]]]></http:body>
+			</http:error-response>
+		</http:listener>
+		<logger level="INFO" doc:name="Start Log" doc:id="4872230e-d3bb-4c6f-b94f-14ad233c53f1" message="Service Now Create Incident Flow Started"/>
+		<ee:transform doc:name="Set Incident Ticket Content" doc:id="1b50875f-6d8f-4633-aeb1-c1b881858483" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/xml
+ns ns0 http://www.service-now.com/incident
+---
+{
+	ns0#insert: {
+		ns0#caller: payload.caller,
+		ns0#comments: payload.comments,
+		ns0#short_description: payload.short_description
+	}
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<servicenow:invoke doc:name="Create ServiceNow Incident" doc:id="8ee3c4d5-f7d6-4141-b03f-8b5ed6461dbf" config-ref="ServiceNow_Config" service="incident" operation="insert"/>
+		<ee:transform doc:name="Set Payload" doc:id="e8c3a5de-f4a3-4e9b-9bbd-a90bb9ff0260" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="End Log" doc:id="7625ea16-648f-4184-a45b-15f87df8e5e9" message="ServiceNow Create Incident Flow completed"/>
+	</flow>
+	<flow name="servicenow-getIncident" doc:id="f87863d0-0138-4282-a11b-bb09e3467070" >
+		<http:listener doc:name="Listener" doc:id="16aa1e20-b0f4-4ee6-81d3-efb11f64d83f" config-ref="HTTP_Listener_config" path="/get-incident"/>
+		<logger level="INFO" doc:name="Start Log" doc:id="ec6e5fe9-f699-4d6b-a36d-2eab5365fa5f" message="Service Now Get Incident Flow Started"/>
+		<ee:transform doc:name="get Incident Query" doc:id="24bb6c17-a154-40ce-9ca1-8ed447a327bb" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/xml
+ns ns0 http://www.service-now.com/incident
+---
+{
+	ns0#getRecords:{
+		number: attributes.queryParams.inc as String
+	}
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<servicenow:invoke doc:name="Get ServiceNow Incidents" doc:id="b732b0ca-9955-44a3-9fe8-e4217ad9387e" config-ref="ServiceNow_Config" service="incident" operation="getRecords"/>
+		<ee:transform doc:name="Transform Message" doc:id="dba19f55-f253-4531-bef9-3970a5a04757" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="End Log" doc:id="174c4544-4806-42e7-91bc-070cdba37fd2" message="Service Now Create Incident Flow Completed"/>
+	</flow>
+</mule>
