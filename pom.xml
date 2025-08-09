@@ -13,7 +13,7 @@
 	<groupId>io.github.mulesoft-forge</groupId>
 	<artifactId>mule-idp-connector</artifactId>
 	<packaging>mule-extension</packaging>
-	<version>1.0.3</version>
+	<version>1.0.4</version>
 
 	<name>IDP Connector</name>
 	<description>A Mule extension that provides functionality for Intelligent Document Processing</description>
