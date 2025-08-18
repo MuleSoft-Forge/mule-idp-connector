@@ -14,6 +14,7 @@
 	<artifactId>mule-idp-connector</artifactId>
 	<packaging>mule-extension</packaging>
 	<version>1.0.4</version>
+	<version>1.0.5</version>
 
 	<name>IDP Connector</name>
 	<description>A Mule extension that provides functionality for Intelligent Document Processing</description>
@@ -183,6 +184,7 @@
 				<extensions>true</extensions>
 				<configuration>
 					<publishingServerId>maven-central-mulesoft-forge</publishingServerId>
+					<autoPublish>false</autoPublish>
 				</configuration>
 			</plugin>
 		</plugins>

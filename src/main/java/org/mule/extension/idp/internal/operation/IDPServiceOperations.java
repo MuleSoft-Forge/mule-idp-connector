@@ -200,7 +200,7 @@ public class IDPServiceOperations {
 
         Map<String, String> uriParameters = new HashMap<>();
         uriParameters.put("organizationId", connection.getOrganisationId());
-        uriParameters.put("actionId", executionId);
+        uriParameters.put("actionId", actionId);
         uriParameters.put("executionId", executionId);
 
         String uri = connection.getServiceBaseUrl() + IDPOperationsUtils.createEndpoint(IDP_BASE + IDP_UPDATE_REVIEW_TASK, uriParameters);
