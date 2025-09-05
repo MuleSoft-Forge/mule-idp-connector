@@ -20,11 +20,11 @@ import org.mule.sdk.api.annotation.MinMuleVersion;
 
 import static org.mule.sdk.api.meta.JavaVersion.*;
 /**
- * MuleSoft IDP Universal Connector
+ * MuleSoftForge IDP Universal Connector
  *
  * @author Open Source
  */
-@Extension(name="MuleSoft IDP", category = Category.COMMUNITY)
+@Extension(name="MuleSoftForge IDP", category = Category.COMMUNITY)
 @ErrorTypes(IDPError.class)
 @Xml(prefix ="mule-idp")
 @Configurations(IDPConfiguration.class)
