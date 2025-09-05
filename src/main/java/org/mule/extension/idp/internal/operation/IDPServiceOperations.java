@@ -93,7 +93,7 @@ public class IDPServiceOperations {
 
             requestBuilder.entity(new MultipartHttpEntity(multiPartsFormData));
 
-        }, uri, HttpConstants.Method.POST, IDPAuthentication.OAUTH, connection.getClientCredentialsState().getAccessToken())
+        }, uri, HttpConstants.Method.POST, IDPAuthentication.OAUTH)
         .whenCompleteAsync(IDPOperationsUtils.createCompletionHandler(completionCallback, uri));
     }
 
@@ -119,7 +119,7 @@ public class IDPServiceOperations {
         connection.sendRequestNonBlocking(requestBuilder -> {
                     requestBuilder.addQueryParam("valueOnly", String.valueOf(valueOnly));
 
-                }, uri, HttpConstants.Method.GET, IDPAuthentication.OAUTH, connection.getClientCredentialsState().getAccessToken())
+                }, uri, HttpConstants.Method.GET, IDPAuthentication.OAUTH)
                 .whenCompleteAsync(IDPOperationsUtils.createCompletionHandler(completionCallback, uri));
     }
 
@@ -143,7 +143,7 @@ public class IDPServiceOperations {
                     if (pageable.getSize() > 0) {
                         requestBuilder.addQueryParam("size", String.valueOf(pageable.getSize()));
                     }
-                }, uri, HttpConstants.Method.GET, IDPAuthentication.BASIC_AUTH, "")
+                }, uri, HttpConstants.Method.GET, IDPAuthentication.BASIC_AUTH)
                 .whenCompleteAsync(IDPOperationsUtils.createCompletionHandler(completionCallback, uri));
     }
 
@@ -164,7 +164,7 @@ public class IDPServiceOperations {
         String uri = connection.getServiceBaseUrl() + IDPOperationsUtils.createEndpoint(IDP_BASE + IDP_RETRIEVE_REVIEW_TASK, uriParameters);
 
         connection.sendRequestNonBlocking(requestBuilder -> {
-                }, uri, HttpConstants.Method.GET, IDPAuthentication.BASIC_AUTH, "")
+                }, uri, HttpConstants.Method.GET, IDPAuthentication.BASIC_AUTH)
                 .whenCompleteAsync(IDPOperationsUtils.createCompletionHandler(completionCallback, uri));
     }
 
@@ -184,7 +184,7 @@ public class IDPServiceOperations {
         String uri = connection.getServiceBaseUrl() + IDPOperationsUtils.createEndpoint(IDP_BASE + IDP_DELETE_REVIEW_TASK, uriParameters);
 
         connection.sendRequestNonBlocking(requestBuilder -> {
-                }, uri, HttpConstants.Method.DELETE, IDPAuthentication.BASIC_AUTH, "")
+                }, uri, HttpConstants.Method.DELETE, IDPAuthentication.BASIC_AUTH)
                 .whenCompleteAsync(IDPOperationsUtils.createCompletionHandler(completionCallback, uri));
     }
 
@@ -208,7 +208,7 @@ public class IDPServiceOperations {
         connection.sendRequestNonBlocking(requestBuilder -> {
                     requestBuilder.addHeader("Content-Type", "application/json");
                     requestBuilder.entity(new InputStreamHttpEntity(contents.getValue()));
-                }, uri, HttpConstants.Method.PATCH, IDPAuthentication.BASIC_AUTH, "")
+                }, uri, HttpConstants.Method.PATCH, IDPAuthentication.BASIC_AUTH)
                 .whenCompleteAsync(IDPOperationsUtils.createCompletionHandler(completionCallback, uri));
     }
 

@@ -30,7 +30,7 @@ public class IDPOperationsUtils {
                 int statusCode = httpResponse.getStatusCode();
                 String reason = httpResponse.getReasonPhrase();
                 if (statusCode >= 400) {
-                    completionCallback.error(new IDPHttpException(createHttpResponseMessage("IDP Error Occured", reason, statusCode, uri), IDPError.CONNECTIVITY) );
+                    completionCallback.error(new IDPHttpException(createHttpResponseMessage("IDP Error Occurred", reason, statusCode, uri), IDPError.CONNECTIVITY) );
                 } else {
                     completionCallback.success(Result.<InputStream, Void>builder().output(httpResponse.getEntity().getContent())
                             .mediaType(APPLICATION_JSON)

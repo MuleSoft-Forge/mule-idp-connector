@@ -69,7 +69,7 @@ public class IDPPlatformOperations {
                     if (pageable.getSort() != null) {
                         requestBuilder.addQueryParam("sort", String.valueOf(pageable.getSort()));
                     }
-                }, uri, HttpConstants.Method.GET, IDPAuthentication.BASIC_AUTH, "")
+                }, uri, HttpConstants.Method.GET, IDPAuthentication.BASIC_AUTH)
                 .whenCompleteAsync(IDPOperationsUtils.createCompletionHandler(completionCallback, uri));
     }
 
@@ -103,7 +103,7 @@ public class IDPPlatformOperations {
                     if (pageable.getSort() != null) {
                         requestBuilder.addQueryParam("sort", String.valueOf(pageable.getSort()));
                     }
-                }, uri, HttpConstants.Method.GET, IDPAuthentication.BASIC_AUTH, "")
+                }, uri, HttpConstants.Method.GET, IDPAuthentication.BASIC_AUTH)
                 .whenCompleteAsync(IDPOperationsUtils.createCompletionHandler(completionCallback, uri));
     }
 
@@ -129,7 +129,7 @@ public class IDPPlatformOperations {
 
         String uri = connection.getPlatformBaseUrl() + IDPOperationsUtils.createEndpoint(PLATFORM_BASE + PLATFORM_IDP_RETRIEVE_ACTION_VERSION, uriParameters);
 
-        connection.sendRequestNonBlocking(requestBuilder -> {}, uri, HttpConstants.Method.GET, IDPAuthentication.BASIC_AUTH, "")
+        connection.sendRequestNonBlocking(requestBuilder -> {}, uri, HttpConstants.Method.GET, IDPAuthentication.BASIC_AUTH)
                 .whenCompleteAsync(IDPOperationsUtils.createCompletionHandler(completionCallback, uri));
     }
 
@@ -154,7 +154,7 @@ public class IDPPlatformOperations {
 
         String uri = connection.getPlatformBaseUrl() + IDPOperationsUtils.createEndpoint(PLATFORM_BASE + PLATFORM_IDP_RETRIEVE_ACTION_DETAIL, uriParameters);
 
-        connection.sendRequestNonBlocking(requestBuilder -> {}, uri, HttpConstants.Method.GET, IDPAuthentication.BASIC_AUTH, "")
+        connection.sendRequestNonBlocking(requestBuilder -> {}, uri, HttpConstants.Method.GET, IDPAuthentication.BASIC_AUTH)
                 .whenCompleteAsync(IDPOperationsUtils.createCompletionHandler(completionCallback, uri));
     }
 
@@ -177,7 +177,7 @@ public class IDPPlatformOperations {
 
         String uri = connection.getPlatformBaseUrl() + IDPOperationsUtils.createEndpoint(PLATFORM_BASE + PLATFORM_IDP_LIST_ACTION_REVIEWERS, uriParameters);
 
-        connection.sendRequestNonBlocking(requestBuilder -> {}, uri, HttpConstants.Method.GET, IDPAuthentication.BASIC_AUTH, "")
+        connection.sendRequestNonBlocking(requestBuilder -> {}, uri, HttpConstants.Method.GET, IDPAuthentication.BASIC_AUTH)
                 .whenCompleteAsync(IDPOperationsUtils.createCompletionHandler(completionCallback, uri));
     }
 
@@ -204,7 +204,7 @@ public class IDPPlatformOperations {
         connection.sendRequestNonBlocking(requestBuilder -> {
                     requestBuilder.addHeader("Content-Type", "application/json");
                     requestBuilder.entity(new InputStreamHttpEntity(contents.getValue()));
-                }, uri, HttpConstants.Method.PATCH, IDPAuthentication.BASIC_AUTH, "")
+                }, uri, HttpConstants.Method.PATCH, IDPAuthentication.BASIC_AUTH)
                 .whenCompleteAsync(IDPOperationsUtils.createCompletionHandler(completionCallback, uri));
     }
 }

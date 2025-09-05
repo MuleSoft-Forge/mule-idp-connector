@@ -103,8 +103,7 @@ public class IDPConnection {
     public CompletableFuture<HttpResponse> sendRequestNonBlocking(Consumer<HttpRequestBuilder> httpRequestBuilderConsumer,
                                                                   String uri,
                                                                   HttpConstants.Method method,
-                                                                  IDPAuthentication authentication,
-                                                                  String accessTokenIfAuthenticationIsOAuth) {
+                                                                  IDPAuthentication authentication) {
 
         HttpRequestBuilder builder = HttpRequest.builder();
 
@@ -112,41 +111,29 @@ public class IDPConnection {
             httpRequestBuilderConsumer.accept(builder);
         }
 
-        HttpRequest request = null;
+        HttpRequest request = builder.method(method).uri(uri).build();
         HttpRequestOptions options = null;
 
         if (authentication == IDPAuthentication.BASIC_AUTH) {
             options = HttpRequestOptions.builder()
                     .authentication(httpAuthentication)
                     .build();
-            request = builder.method(method)
-                    .uri(uri)
-                    .build();
-
             return httpClient.sendAsync(request, options);
 
         } else if (authentication == IDPAuthentication.OAUTH) {
-            request = builder.method(method)
-                    .uri(uri)
-                    .addHeader(AUTHORIZATION, "Bearer " + accessTokenIfAuthenticationIsOAuth)
+            options = HttpRequestOptions.builder()
+                    .authentication(httpAuthentication)
                     .build();
-
-            return httpClient.sendAsync(request);
-
+            return httpClient.sendAsync(request, options);
         } else {
-            request = builder.method(method)
-                    .uri(uri)
-                    .build();
+            return httpClient.sendAsync(request);
         }
-
-        return httpClient.sendAsync(request);
     }
 
     public HttpResponse sendRequestBlocking(Consumer<HttpRequestBuilder> httpRequestBuilderConsumer,
                                             String uri,
                                             HttpConstants.Method method,
-                                            IDPAuthentication authentication,
-                                            String accessTokenIfAuthenticationIsOAuth) throws Throwable {
+                                            IDPAuthentication authentication) throws Throwable {
 
         HttpRequestBuilder builder = HttpRequest.builder();
 
@@ -154,34 +141,24 @@ public class IDPConnection {
             httpRequestBuilderConsumer.accept(builder);
         }
 
-        HttpRequest request = null;
+        HttpRequest request = builder.method(method).uri(uri).build();
         HttpRequestOptions options = null;
 
         if (authentication == IDPAuthentication.BASIC_AUTH) {
             options = HttpRequestOptions.builder()
                     .authentication(httpAuthentication)
                     .build();
-            request = builder.method(method)
-                    .uri(uri)
-                    .build();
-
             return httpClient.send(request, options);
 
         } else if (authentication == IDPAuthentication.OAUTH) {
-            request = builder.method(method)
-                    .uri(uri)
-                    .addHeader(AUTHORIZATION, "Bearer " + accessTokenIfAuthenticationIsOAuth)
+            options = HttpRequestOptions.builder()
+                    .authentication(httpAuthentication)
                     .build();
-
-            return httpClient.send(request);
+            return httpClient.send(request, options);
 
         } else {
-            request = builder.method(method)
-                    .uri(uri)
-                    .build();
+            return httpClient.send(request);
         }
-
-        return httpClient.send(request);
     }
 
     public void invalidate() {

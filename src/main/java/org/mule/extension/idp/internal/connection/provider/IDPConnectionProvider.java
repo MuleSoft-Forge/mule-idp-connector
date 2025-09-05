@@ -141,7 +141,7 @@ public class IDPConnectionProvider implements CachedConnectionProvider<IDPConnec
 
         try {
             HttpResponse httpResponse = connection.sendRequestBlocking(requestBuilder -> {
-            }, uri, HttpConstants.Method.GET, IDPAuthentication.BASIC_AUTH, "");
+            }, uri, HttpConstants.Method.GET, IDPAuthentication.BASIC_AUTH);
 
             int statusCode = httpResponse.getStatusCode();
             String reason = httpResponse.getReasonPhrase();
